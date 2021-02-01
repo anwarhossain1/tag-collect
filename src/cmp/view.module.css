@@ -1,0 +1,27 @@
+.liContainer{
+    margin-left: 800px;
+
+}
+
+
+.li{
+    display: inline;
+    padding: 5px 5px;
+    text-align: center;
+    
+    
+}
+
+.li span{
+    background-color: rgb(224, 224, 224);
+    padding: 8px;
+    border-radius: 25px;
+
+    
+}
+
+.button{
+    background-color: rgb(224, 224, 224);
+    padding: 8px;
+    border-radius: 25px;
+}
