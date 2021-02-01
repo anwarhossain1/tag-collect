@@ -2,30 +2,31 @@ import React, { Component } from 'react'
 import classes from './cmp.module.css';
 import List from './List';
 import TextSearch from './TextSearch';
-export default class country extends Component {
-    state={
-        countries:[
-            "America",
-            "Bangladesh",
-            "Canada",
-            "Denmark",
-            "Ethiopia",
-            "Finland",
-            "Greece",
-            "Haiti",
-            "Italy",
-            "Japan",
-            "Kenya"
+import { connect } from 'react-redux';
+class country extends Component {
+    // state={
+    //     countries:[
+    //         "America",
+    //         "Bangladesh",
+    //         "Canada",
+    //         "Denmark",
+    //         "Ethiopia",
+    //         "Finland",
+    //         "Greece",
+    //         "Haiti",
+    //         "Italy",
+    //         "Japan",
+    //         "Kenya"
 
-        ],
-        updatedCountries:[]
-    }
-    componentDidMount(){
-        this.setState({
-            updatedCountries:this.state.countries
-        })
+    //     ],
+    //     updatedCountries:[]
+    // }
+    // componentDidMount(){
+    //     this.setState({
+    //         updatedCountries:this.state.countries
+    //     })
 
-    };
+    // };
 
     FilterList=(e)=>{
         
@@ -36,9 +37,9 @@ export default class country extends Component {
                 
         })
         
-        this.setState({
-            updatedCountries:updatedList
-        });
+        // this.setState({
+        //     updatedCountries:updatedList
+        // });
 
     }
     render() {
@@ -46,7 +47,6 @@ export default class country extends Component {
             <div className={classes.app}> 
                 <input className={classes.input} type="text" placeholder="search" onChange={this.FilterList}/>
                 <List items={this.state.updatedCountries}/>
-                {/* <TextSearch countries={this.state.countries}/> */}
                 
                 
                 
@@ -54,3 +54,20 @@ export default class country extends Component {
         )
     }
 }
+const mapStateToProps=state=>{
+    return{
+        countries:state.countries
+    }
+        
+}
+
+const mapDispatchToProps= dispatch =>{
+    return{
+        onChangeHandler:()=> dispatch({type:'SOME'})
+    }
+    
+
+}
+    
+
+export default connect(mapStateToProps,mapDispatchToProps)(country);
