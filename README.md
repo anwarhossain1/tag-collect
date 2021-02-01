@@ -1,1 +1,1 @@
-This is my given project. Here I have tried to add mentioned functionalities. Though it's not fully complete cause i am unfortunately failing to add tag via users country search. And also i haven't add redux into my project yet. But it will be soon updated with redux.  
+This is my given project. Here I have tried to add mentioned functionalities. Though it's not fully complete cause i am unfortunately failing to add tag via users country search. And also i haven't add redux completely into my project yet. But it will be soon updated with redux.  
