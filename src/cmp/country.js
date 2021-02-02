@@ -1,45 +1,32 @@
 import React, { Component } from 'react'
 import classes from './cmp.module.css';
 import List from './List';
-import TextSearch from './TextSearch';
+
 import { connect } from 'react-redux';
 class country extends Component {
-    // state={
-    //     countries:[
-    //         "America",
-    //         "Bangladesh",
-    //         "Canada",
-    //         "Denmark",
-    //         "Ethiopia",
-    //         "Finland",
-    //         "Greece",
-    //         "Haiti",
-    //         "Italy",
-    //         "Japan",
-    //         "Kenya"
+    state={
+        
+        updatedCountries:[]
+    }
+    componentDidMount(){
+        this.setState({
+            updatedCountries:this.props.cntrs
+        })
 
-    //     ],
-    //     updatedCountries:[]
-    // }
-    // componentDidMount(){
-    //     this.setState({
-    //         updatedCountries:this.state.countries
-    //     })
-
-    // };
+    };
 
     FilterList=(e)=>{
         
-        let updatedList=this.state.countries;
+        let updatedList=this.props.cntrs;
         updatedList=updatedList.filter(item=>{
             return item.toLowerCase().search(
                 e.target.value.toLowerCase()) !== -1;
                 
         })
         
-        // this.setState({
-        //     updatedCountries:updatedList
-        // });
+        this.setState({
+            updatedCountries:updatedList
+        });
 
     }
     render() {
@@ -56,7 +43,8 @@ class country extends Component {
 }
 const mapStateToProps=state=>{
     return{
-        countries:state.countries
+        cntrs:state.countries,
+        upCntrs: state.updatedCountries
     }
         
 }
